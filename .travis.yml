@@ -11,3 +11,9 @@ cache:
 script:
 - yarn test
 - yarn run build
+
+scripts:
+- npm install codecov -g
+
+after_success:
+- codecov
