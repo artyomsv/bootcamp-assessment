@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<NavigationDrawer
+  classes={
+    Object {
+      "drawerPaper": "NavigationDrawer-drawerPaper-1",
+    }
+  }
+/>
+`;

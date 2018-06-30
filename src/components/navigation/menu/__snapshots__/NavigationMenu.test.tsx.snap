@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<Navigation
+  classes={
+    Object {
+      "root": "Navigation-root-1",
+    }
+  }
+  navigateTo={[MockFunction]}
+/>
+`;

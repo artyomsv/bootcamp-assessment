@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<NavigationMenuItem
+  classes={
+    Object {
+      "icon": "NavigationMenuItem-icon-3",
+      "menuItem": "NavigationMenuItem-menuItem-1",
+      "primary": "NavigationMenuItem-primary-2",
+    }
+  }
+  icon="Icon"
+  navigateTo={[MockFunction]}
+  title="Title"
+/>
+`;

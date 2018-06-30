@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<Header
+  classes={
+    Object {
+      "appBar": "Header-appBar-1",
+      "flex": "Header-flex-3",
+      "menuButton": "Header-menuButton-4",
+      "root": "Header-root-2",
+    }
+  }
+  onMenuClick={[MockFunction]}
+/>
+`;
