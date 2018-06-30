@@ -1,0 +1,13 @@
+version: 2
+
+exclude_patterns:
+- "**/*.stories.tsx"
+- "**/*.mock.ts"
+- "**/*.reducer.ts"
+- "scripts/"
+- "build/"
+- "public/"
+- "config/"
+- ".storybook/"
+- "**/node_modules/"
+- "**/*.d.ts"
