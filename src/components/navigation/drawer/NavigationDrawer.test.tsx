@@ -6,7 +6,7 @@ const shallow = createShallow();
 
 describe('renders without crashing', () => {
   test('if renders', () => {
-    const result = shallow(<NavigationDrawer/>);
+    const result = shallow(<NavigationDrawer checked={true}/>);
     expect(result).toMatchSnapshot();
   });
 });

@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 import storage from 'redux-persist/lib/storage';
 import {persistReducer} from 'redux-persist';
 import {reducer as toastr} from 'react-redux-toastr';
+import {navigationReducer} from './Navigation.reducer';
 
 const rootPersistConfig = {
   key: 'root',
@@ -10,6 +11,7 @@ const rootPersistConfig = {
 };
 
 const rootReducer = combineReducers({
+  navigation: navigationReducer,
   toastr
 });
 

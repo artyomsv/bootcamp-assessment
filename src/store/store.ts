@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import {persistStore} from 'redux-persist';
 import reducers from './reducers';
+import {NavigationState} from './reducers/Navigation.reducer';
+import {ToastrState} from 'react-redux-toastr';
 
 const configureStore = () => {
   const middlewares = [thunk];
@@ -26,5 +28,10 @@ const configureStore = () => {
   return reduxStore;
 };
 
-export const store: Store = configureStore();
+export interface ApplicationState {
+  navigation: NavigationState,
+  toastr: ToastrState,
+}
+
+export const store: Store<ApplicationState> = configureStore();
 export default persistStore(store);

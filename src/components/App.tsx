@@ -26,9 +26,7 @@ class App extends React.Component<WithStyles<typeof styles>> {
     const {classes} = this.props;
     return (
       <div className={classes.root}>
-        <Header
-          onMenuClick={() => console.log('Hello')}
-        />
+        <Header/>
         <NavigationDrawer/>
         <ActorsView actors={actors}/>
       </div>

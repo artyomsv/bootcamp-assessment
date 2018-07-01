@@ -1,3 +1,3 @@
-import NavigationDrawer from './NavigationDrawer.widget';
+import NavigationDrawer from './NavigationDrawer.container';
 
 export default NavigationDrawer;

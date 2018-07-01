@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {Theme, WithStyles} from '@material-ui/core';
 import {createStyles, withStyles} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import * as debounce from 'lodash.debounce';
 
 const styles = (theme: Theme) => createStyles({
   appBar: {
@@ -27,17 +28,22 @@ interface HeaderPropActions {
   onMenuClick(): void;
 }
 
-const Header: React.SFC<HeaderPropActions & WithStyles<typeof styles>> = ({onMenuClick, classes}) => (
-  <AppBar position={'absolute'} className={classes.appBar}>
-    <Toolbar>
-      <IconButton className={classes.menuButton} color={'inherit'} aria-label={'Menu'} onClick={onMenuClick}>
-        <MenuIcon/>
-      </IconButton>
-      <Typography variant="title" color="inherit" className={classes.flex} noWrap>
-        IMDb
-      </Typography>
-    </Toolbar>
-  </AppBar>
-);
+const Header: React.SFC<HeaderPropActions & WithStyles<typeof styles>> = ({onMenuClick, classes}) => {
+    onMenuClick = debounce(onMenuClick, 300);
+
+    return (
+      <AppBar position={'absolute'} className={classes.appBar}>
+        <Toolbar>
+          <IconButton className={classes.menuButton} color={'inherit'} aria-label={'Menu'} onClick={onMenuClick}>
+            <MenuIcon/>
+          </IconButton>
+          <Typography variant="title" color="inherit" className={classes.flex} noWrap>
+            IMDb
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    );
+  }
+;
 
 export default withStyles(styles)(Header);
