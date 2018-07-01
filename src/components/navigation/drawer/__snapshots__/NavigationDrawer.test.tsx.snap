@@ -8,5 +8,6 @@ exports[`renders without crashing if renders 1`] = `
       "drawerPaper": "NavigationDrawer-drawerPaper-1",
     }
   }
+  navigateTo={[MockFunction]}
 />
 `;

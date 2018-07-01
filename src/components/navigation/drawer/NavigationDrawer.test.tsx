@@ -6,7 +6,8 @@ const shallow = createShallow();
 
 describe('renders without crashing', () => {
   test('if renders', () => {
-    const result = shallow(<NavigationDrawer checked={true}/>);
+    const mockFn = jest.fn();
+    const result = shallow(<NavigationDrawer checked={true} navigateTo={mockFn}/>);
     expect(result).toMatchSnapshot();
   });
 });

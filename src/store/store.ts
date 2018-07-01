@@ -5,9 +5,14 @@ import {persistStore} from 'redux-persist';
 import reducers from './reducers';
 import {NavigationState} from './reducers/Navigation.reducer';
 import {ToastrState} from 'react-redux-toastr';
+import createHistory from 'history/createBrowserHistory';
+import {routerMiddleware} from 'react-router-redux';
+import {ActorsState} from './reducers/Actors.reducer';
+
+export const history = createHistory();
 
 const configureStore = () => {
-  const middlewares = [thunk];
+  const middlewares = [thunk, routerMiddleware(history)];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 
   const storeEnhancers = [middlewareEnhancer];
@@ -30,6 +35,7 @@ const configureStore = () => {
 
 export interface ApplicationState {
   navigation: NavigationState,
+  actors: ActorsState,
   toastr: ToastrState,
 }
 

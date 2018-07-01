@@ -15,13 +15,13 @@ storiesOf('Navigation', module)
   ))
   .add('Navigation Drawer', () => {
 
-    interface StoryComponentProps {
+    interface StoryComponentState {
       checked: boolean;
     }
 
-    class StoryComponent extends React.Component<any, StoryComponentProps> {
+    class StoryComponent extends React.Component<any, StoryComponentState> {
 
-      constructor(props: StoryComponentProps) {
+      constructor(props: StoryComponentState) {
         super(props);
         this.state = {checked: true};
       }
@@ -34,7 +34,10 @@ storiesOf('Navigation', module)
         return (
           <div>
             <Switch checked={this.state.checked} onChange={this.handleChange} aria-label="collapse"/>
-            <NavigationDrawer checked={this.state.checked}/>
+            <NavigationDrawer
+              checked={this.state.checked}
+              navigateTo={(path: string) => action('navigateTo')(path)}
+            />
           </div>
 
         );

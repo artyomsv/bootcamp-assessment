@@ -6,8 +6,11 @@ exports[`renders without crashing if renders 1`] = `
   classes={
     Object {
       "content": "ActorsView-content-1",
-      "toolbar": "ActorsView-toolbar-2",
     }
   }
+  fetchActors={[MockFunction]}
+  isFetching={false}
+  toggleView={[MockFunction]}
+  view="grid"
 />
 `;

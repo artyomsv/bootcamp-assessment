@@ -3,7 +3,14 @@ import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core';
 import Header from './header';
 import NavigationDrawer from './navigation/drawer';
 import ActorsView from './views/actors';
-import actors from './views/actors.mock.json';
+import {ConnectedRouter} from 'react-router-redux';
+import {Switch} from 'react-router';
+import {Route} from 'react-router';
+import {history} from '../store/store';
+// import {AppRouting} from '../services/Routing.service';
+// import actors from './views/actors.mock.json';
+import MainView from './views/Main.view';
+import {AppRouting} from '../services/Routing.service';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -14,6 +21,13 @@ const styles = (theme: Theme) => createStyles({
     position: 'relative',
     display: 'flex',
   },
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing.unit * 3,
+    minWidth: 0,
+  },
+  toolbar: theme.mixins.toolbar,
 });
 
 class App extends React.Component<WithStyles<typeof styles>> {
@@ -28,7 +42,20 @@ class App extends React.Component<WithStyles<typeof styles>> {
       <div className={classes.root}>
         <Header/>
         <NavigationDrawer/>
-        <ActorsView actors={actors}/>
+        {/*<ActorsView actors={actors}/>*/}
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route exact path="/">
+              <MainView component={<div>Hello</div>} isFetching={true}/>
+            </Route>
+            <Route exact path={AppRouting.PEOPLE} component={ActorsView}/>
+            <Route exact path={AppRouting.FILMS}>
+              <MainView component={<div>Films</div>} isFetching={true}/>
+            </Route>
+            {/*<Route path={AppRouting.PEOPLE} component={ActorsView}/>*/}
+            {/*<Route path={AppRouting.FILMS} render={() => <div>Films</div>}/>*/}
+          </Switch>
+        </ConnectedRouter>
       </div>
     );
   }

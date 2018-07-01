@@ -19,6 +19,6 @@ describe('Test Navigation', () => {
   test('if renders', () => {
     const mockFn = jest.fn();
     const wrap = mount(<NavigationMenu navigateTo={mockFn}/>);
-    expect(wrap.find(MenuItem).length).toBe(2);
+    expect(wrap.find(MenuItem).length).toBe(3);
   });
 });

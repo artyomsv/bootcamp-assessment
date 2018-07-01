@@ -4,7 +4,9 @@ exports[`renders without crashing if renders 1`] = `
 <App
   classes={
     Object {
+      "content": "App-content-2",
       "root": "App-root-1",
+      "toolbar": "App-toolbar-3",
     }
   }
 />

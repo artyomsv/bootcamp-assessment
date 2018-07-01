@@ -18,7 +18,11 @@ interface NavigationDrawerProps {
   className?: string
 }
 
-const NavigationDrawer: React.SFC<NavigationDrawerProps & WithStyles<typeof styles>> = ({checked, classes, className}) => (
+interface NavigationDrawerActions {
+  navigateTo(path: string): void
+}
+
+const NavigationDrawer: React.SFC<NavigationDrawerProps & NavigationDrawerActions & WithStyles<typeof styles>> = ({navigateTo, checked, classes, className}) => (
   <Slide direction={'right'} in={checked} mountOnEnter unmountOnExit>
     <Drawer
       className={className}
@@ -27,7 +31,7 @@ const NavigationDrawer: React.SFC<NavigationDrawerProps & WithStyles<typeof styl
         paper: classes.drawerPaper,
       }}
     >
-      <NavigationMenu navigateTo={(path: string) => console.log(path)}/>
+      <NavigationMenu navigateTo={navigateTo}/>
     </Drawer>
 
   </Slide>

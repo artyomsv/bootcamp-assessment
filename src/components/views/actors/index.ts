@@ -1,3 +1,3 @@
-import ActorsView from './Actors.view';
+import ActorsView from './Actors.container';
 
 export default ActorsView;

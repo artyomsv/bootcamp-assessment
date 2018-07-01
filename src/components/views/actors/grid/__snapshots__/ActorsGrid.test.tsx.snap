@@ -6,6 +6,7 @@ exports[`renders without crashing if renders 1`] = `
   classes={
     Object {
       "icon": "ActorsGrid-icon-2",
+      "image": "ActorsGrid-image-5",
       "root": "ActorsGrid-root-1",
       "tile": "ActorsGrid-tile-3",
       "title": "ActorsGrid-title-4",

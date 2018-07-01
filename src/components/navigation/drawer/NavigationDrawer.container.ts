@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import NavigationDrawer from './NavigationDrawer.widget';
 import {Dispatch} from 'redux';
-import {toggleNavigationAction} from '../../../store/actions/Navigation.actions';
 import {ApplicationState} from '../../../store/store';
+import {push} from 'react-router-redux';
 
 const mapStateToProps = (state: ApplicationState) => {
   return {
@@ -12,8 +12,8 @@ const mapStateToProps = (state: ApplicationState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    toggleNavigation: () => {
-      dispatch(toggleNavigationAction())
+    navigateTo: (path: string) => {
+      dispatch(push(path))
     },
   };
 };
