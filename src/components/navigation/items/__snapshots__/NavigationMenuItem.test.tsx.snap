@@ -11,6 +11,7 @@ exports[`renders without crashing if renders 1`] = `
   }
   icon="Icon"
   navigateTo={[MockFunction]}
+  selected={false}
   title="Title"
 />
 `;

@@ -8,5 +8,6 @@ exports[`renders without crashing if renders 1`] = `
     }
   }
   navigateTo={[MockFunction]}
+  selectedPage="home"
 />
 `;

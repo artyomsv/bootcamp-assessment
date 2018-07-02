@@ -3,6 +3,8 @@ import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import NavigationMenu from './../menu';
 import Slide from '@material-ui/core/Slide';
+import {AppView} from '../../../store/reducers/Navigation.reducer';
+import {AppRoutingData} from '../../../services/Routing.service';
 
 const drawerWidth = 200;
 
@@ -16,13 +18,16 @@ const styles = (theme: Theme) => createStyles({
 interface NavigationDrawerProps {
   checked: boolean
   className?: string
+  selectedPage: AppView;
 }
 
 interface NavigationDrawerActions {
-  navigateTo(path: string): void
+  navigateTo(path: AppRoutingData): void
 }
 
-const NavigationDrawer: React.SFC<NavigationDrawerProps & NavigationDrawerActions & WithStyles<typeof styles>> = ({navigateTo, checked, classes, className}) => (
+const NavigationDrawer: React.SFC<NavigationDrawerProps & NavigationDrawerActions & WithStyles<typeof styles>> = (
+  {navigateTo, checked, classes, selectedPage, className}
+) => (
   <Slide direction={'right'} in={checked} mountOnEnter unmountOnExit>
     <Drawer
       className={className}
@@ -31,7 +36,7 @@ const NavigationDrawer: React.SFC<NavigationDrawerProps & NavigationDrawerAction
         paper: classes.drawerPaper,
       }}
     >
-      <NavigationMenu navigateTo={navigateTo}/>
+      <NavigationMenu navigateTo={navigateTo} selectedPage={selectedPage}/>
     </Drawer>
 
   </Slide>

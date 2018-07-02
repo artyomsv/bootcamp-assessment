@@ -7,7 +7,7 @@ const shallow = createShallow();
 describe('renders without crashing', () => {
   test('if renders', () => {
     const mockFn = jest.fn();
-    const result = shallow(<NavigationMenuItem navigateTo={mockFn} title={'Title'} icon={'Icon'}/>);
+    const result = shallow(<NavigationMenuItem navigateTo={mockFn} title={'Title'} icon={'Icon'} selected={false}/>);
     expect(result).toMatchSnapshot();
   });
 });

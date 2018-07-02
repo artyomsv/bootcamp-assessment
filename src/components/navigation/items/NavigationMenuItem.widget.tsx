@@ -23,6 +23,7 @@ const styles = (theme: Theme) => createStyles({
 interface NavigationMenuItemProps {
   title: string;
   icon: string;
+  selected: boolean;
 }
 
 interface NavigationMenuItemActions {
@@ -30,11 +31,15 @@ interface NavigationMenuItemActions {
 }
 
 const NavigationMenuItem: React.SFC<NavigationMenuItemProps & NavigationMenuItemActions & WithStyles<typeof styles>> = (props) => (
-  <MenuItem className={props.classes.menuItem} onClick={props.navigateTo}>
+  <MenuItem className={props.classes.menuItem} onClick={props.navigateTo} selected={props.selected}>
     <ListItemIcon className={props.classes.icon}>
       <img src={props.icon} className={props.classes.icon} alt="logo"/>
     </ListItemIcon>
-    <ListItemText classes={{primary: props.classes.primary}} inset primary={props.title}/>
+    <ListItemText
+      classes={{primary: props.classes.primary}}
+      inset
+      primary={props.title}
+    />
   </MenuItem>
 );
 

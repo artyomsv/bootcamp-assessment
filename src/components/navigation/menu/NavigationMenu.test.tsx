@@ -10,7 +10,7 @@ const mount = createMount();
 describe('renders without crashing', () => {
   test('if renders', () => {
     const mockFn = jest.fn();
-    const result = shallow(<NavigationMenu navigateTo={mockFn}/>);
+    const result = shallow(<NavigationMenu navigateTo={mockFn} selectedPage={'home'}/>);
     expect(result).toMatchSnapshot();
   });
 });
@@ -18,7 +18,7 @@ describe('renders without crashing', () => {
 describe('Test Navigation', () => {
   test('if renders', () => {
     const mockFn = jest.fn();
-    const wrap = mount(<NavigationMenu navigateTo={mockFn}/>);
+    const wrap = mount(<NavigationMenu navigateTo={mockFn} selectedPage={'home'}/>);
     expect(wrap.find(MenuItem).length).toBe(3);
   });
 });

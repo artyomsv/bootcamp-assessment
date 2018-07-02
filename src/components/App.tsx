@@ -3,12 +3,11 @@ import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core';
 import Header from './header';
 import NavigationDrawer from './navigation/drawer';
 import ActorsView from './views/actors';
+import HomeView from './views/home';
 import {ConnectedRouter} from 'react-router-redux';
 import {Switch} from 'react-router';
 import {Route} from 'react-router';
 import {history} from '../store/store';
-// import {AppRouting} from '../services/Routing.service';
-// import actors from './views/actors.mock.json';
 import MainView from './views/Main.view';
 import {AppRouting} from '../services/Routing.service';
 
@@ -42,24 +41,19 @@ class App extends React.Component<WithStyles<typeof styles>> {
       <div className={classes.root}>
         <Header/>
         <NavigationDrawer/>
-        {/*<ActorsView actors={actors}/>*/}
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path={AppRouting.ROOT()}>
-              <MainView component={<div>Hello</div>} isFetching={true}/>
-            </Route>
-            <Route exact path={AppRouting.ACTORS()} component={ActorsView}/>
-            <Route exact path={AppRouting.MOVIES()}>
+            <Route exact path={AppRouting.root.path()} component={HomeView}/>
+            <Route exact path={AppRouting.actors.path()} component={ActorsView}/>
+            <Route exact path={AppRouting.movies.path()}>
               <MainView component={<div>Films</div>} isFetching={true}/>
             </Route>
-            <Route exact path={AppRouting.ACTORS_BY_ID(':id')}>
+            <Route exact path={AppRouting.actorsById.path(':id')}>
               <MainView component={<div>Actor Details</div>} isFetching={true}/>
             </Route>
-            <Route exact path={AppRouting.MOVIES_BY_ID(':id')}>
+            <Route exact path={AppRouting.moviesById.path(':id')}>
               <MainView component={<div>Movie Details</div>} isFetching={true}/>
             </Route>
-            {/*<Route path={AppRouting.PEOPLE} component={ActorsView}/>*/}
-            {/*<Route path={AppRouting.FILMS} render={() => <div>Films</div>}/>*/}
           </Switch>
         </ConnectedRouter>
       </div>

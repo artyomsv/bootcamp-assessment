@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import * as classNames from 'classnames';
 
 const styles = (theme: Theme) => createStyles({
   content: {
@@ -20,7 +21,8 @@ const styles = (theme: Theme) => createStyles({
 
 interface ActorsViewProps {
   component: React.ReactNode
-  isFetching: boolean;
+  isFetching?: boolean;
+  className?: string;
 }
 
 class MainView extends React.Component<ActorsViewProps & WithStyles<typeof styles>> {
@@ -32,7 +34,7 @@ class MainView extends React.Component<ActorsViewProps & WithStyles<typeof style
         <div className={classes.progress}>
           {this.props.isFetching && <LinearProgress/>}
         </div>
-        <div className={classes.view}>
+        <div className={classNames(this.props.className, classes.view)}>
           {component}
         </div>
       </main>

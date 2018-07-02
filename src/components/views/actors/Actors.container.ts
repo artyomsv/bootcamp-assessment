@@ -27,8 +27,8 @@ const mapDispatchToProps = (dispatch: any) => {
     fetchActors: (query?: string, page?: Page) => dispatch(fetchActorsAction(query, page)),
     toggleView: () => dispatch(toggleViewAction()),
     expand: (id: number) => dispatch(expandActorAction(id)),
-    navigateToActor: (id: number) => dispatch(push(AppRouting.ACTORS_BY_ID(id))),
-    navigateToMovie: (id: number) => dispatch(push(AppRouting.MOVIES_BY_ID(id))),
+    navigateToActor: (id: number) => dispatch(push(AppRouting.actorsById.path(id))),
+    navigateToMovie: (id: number) => dispatch(push(AppRouting.moviesById.path(id))),
     onQueryChange: (query: string) => dispatch(onQueryChangeAction(query)),
   };
 };

@@ -6,6 +6,7 @@ import {action} from '@storybook/addon-actions';
 import actors from './actors.mock.json';
 import {Page} from '../../services/Rest.service';
 import Switch from '@material-ui/core/Switch';
+import HomeView from './home/Home.view'
 
 storiesOf('Views', module)
   .add('Actors View', () => {
@@ -89,5 +90,11 @@ storiesOf('Views', module)
   ))
   .add('Actors Grid', () => (
     <ActorsGrid actors={actors} navigateToActor={(id: number) => action('navigateToActor')(id)}/>
+  ))
+  .add('Home View', () => (
+    <HomeView
+      navigateToActors={() => action('navigateToActors')()}
+      navigateToMovies={() => action('navigateToMovies')()}
+    />
   ))
 ;
