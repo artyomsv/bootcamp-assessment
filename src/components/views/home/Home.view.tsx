@@ -60,11 +60,11 @@ const HomeView: React.SFC<ActorsViewActions & WithStyles<typeof styles>> = ({nav
           <ul>
             <li>
               <span className={classes.linkText}>{'Information about actors can be found '}</span>
-              <span onClick={navigateToActors} className={classes.link}>here</span>
+              <span onClick={navigateToActors} className={classes.link}>here</span>.
             </li>
             <li>
               <span className={classes.linkText}>{'If you want to know more about movies please proceed '}</span>
-              <span onClick={navigateToMovies} className={classes.link}>here</span>
+              <span onClick={navigateToMovies} className={classes.link}>here</span>.
             </li>
           </ul>
         </Paper>
