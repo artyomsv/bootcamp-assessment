@@ -31,10 +31,19 @@ describe('renders without crashing', () => {
 });
 
 describe('Test Actor utils', () => {
-  test('image path construction', () => {
+  test('image path construction [full path]', () => {
     expect(constructPath('http://www.google.lv/api/image/cat.jpg')).toEqual('http://www.google.lv/api/image/cat.jpg');
+  });
+
+  test('image path construction [relative path]', () => {
     expect(constructPath('/cat.jpg')).toEqual('/api/image/cat.jpg');
+  });
+
+  test('image path construction [empty]', () => {
     expect(constructPath('')).toEqual(Person);
+  });
+
+  test('image path construction [undefined]', () => {
     expect(constructPath(undefined)).toEqual(Person);
   });
 });
