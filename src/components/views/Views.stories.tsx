@@ -12,13 +12,14 @@ storiesOf('Views', module)
 
     interface StoryComponentState {
       isFetching: boolean;
+      search: string;
     }
 
     class StoryComponent extends React.Component<any, StoryComponentState> {
 
       constructor(props: any) {
         super(props);
-        this.state = {isFetching: false};
+        this.state = {isFetching: false, search: ''};
       }
 
       handleChange = () => {
@@ -32,9 +33,18 @@ storiesOf('Views', module)
             <ActorsView
               actors={actors}
               isFetching={this.state.isFetching}
-              fetchActors={(page?: Page) => action('fetchActors')(page)}
+              fetchActors={(search?: string, page?: Page) => action('fetchActors')(page)}
               view={'grid'}
               toggleView={() => action('toggleView')()}
+              expanded={-1}
+              expand={(id: number) => action('expand')(id)}
+              navigateToActor={(id: number) => action('navigateToActor')(id)}
+              navigateToMovie={(id: number) => action('navigateToMovie')(id)}
+              page={{page: 1, totalPages: 10, totalResults: 200}}
+              search={this.state.search}
+              onQueryChange={(search: string) => {
+                this.setState({...this.state, search})
+              }}
             />
           </div>
         );
@@ -49,21 +59,35 @@ storiesOf('Views', module)
     <ActorsView
       actors={actors}
       isFetching={false}
-      fetchActors={(page?: Page) => action('fetchActors')(page)}
+      fetchActors={(search?: string, page?: Page) => action('fetchActors')(page)}
       view={'grid'}
       toggleView={() => action('toggleView')()}
+      expanded={-1}
+      expand={(id: number) => action('expand')(id)}
+      navigateToActor={(id: number) => action('navigateToActor')(id)}
+      navigateToMovie={(id: number) => action('navigateToMovie')(id)}
+      page={{page: 1, totalPages: 10, totalResults: 200}}
+      search={''}
+      onQueryChange={(search: string) => action('onQueryChange')(search)}
     />
   ))
   .add('Actors View [Fetching]', () => (
     <ActorsView
       actors={actors}
       isFetching={true}
-      fetchActors={(page?: Page) => action('fetchActors')(page)}
+      fetchActors={(search?: string, page?: Page) => action('fetchActors')(page)}
       view={'grid'}
       toggleView={() => action('toggleView')()}
+      expanded={-1}
+      expand={(id: number) => action('expand')(id)}
+      navigateToActor={(id: number) => action('navigateToActor')(id)}
+      navigateToMovie={(id: number) => action('navigateToMovie')(id)}
+      page={{page: 1, totalPages: 10, totalResults: 200}}
+      search={''}
+      onQueryChange={(search: string) => action('onQueryChange')(search)}
     />
   ))
   .add('Actors Grid', () => (
-    <ActorsGrid actors={actors}/>
+    <ActorsGrid actors={actors} navigateToActor={(id: number) => action('navigateToActor')(id)}/>
   ))
 ;

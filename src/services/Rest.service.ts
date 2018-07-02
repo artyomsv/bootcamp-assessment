@@ -2,8 +2,8 @@ import {default as Axios, AxiosRequestConfig} from 'axios';
 
 export interface Page {
   page: number;
-  totalResults?: number;
-  totalPages?: number;
+  totalResults: number;
+  totalPages: number;
 }
 
 // const apiBaseUrl = 'https://api.themoviedb.org/3';
@@ -26,13 +26,25 @@ export const axios = () => {
   return Axios.create(instanceConfig);
 };
 
-export const actors = (page?: Page) => {
-  return axios().get('/person/popular', {
-      params: {
-        ...defaultParams,
-        page: !!page ? page.page : 1
+export const actors = (query?: string, page?: Page) => {
+  if (query && query.length > 0) {
+    return axios().get('/search/person', {
+        params: {
+          ...defaultParams,
+          query,
+          page: !!page ? page.page : 1
+        }
       }
-    }
-  );
+    );
+  } else {
+    return axios().get('/person/popular', {
+        params: {
+          ...defaultParams,
+          page: !!page ? page.page : 1
+        }
+      }
+    );
+  }
+
 };
 

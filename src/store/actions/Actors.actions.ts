@@ -19,15 +19,26 @@ const failure = (error: AxiosError) => {
   return createAction(ACTORS_FAILURE)(error);
 };
 
-export const ACTORS_TOGGLE_VIEW = '[Actors] Toggke View';
+export const ACTORS_TOGGLE_VIEW = '[Actors] Toggle View';
 export const toggleViewAction = () => {
   return createAction(ACTORS_TOGGLE_VIEW)();
 };
 
-export const fetchActorsAction = (page?: Page) => {
+export const ACTORS_EXPAND_ACTOR = '[Actors] Expand Actor';
+export const expandActorAction = (id: number) => {
+  return createAction(ACTORS_EXPAND_ACTOR)(id);
+};
+
+export const ACTORS_SEARCH_TERM_CHANGED = '[Actors] Search Term Changed';
+export const onQueryChangeAction = (search?: string) => {
+  return createAction(ACTORS_SEARCH_TERM_CHANGED)(search);
+};
+
+
+export const fetchActorsAction = (query?: string, page?: Page) => {
   return (dispatch: Dispatch) => {
     dispatch(start());
-    actors(page)
+    actors(query, page)
       .then((response: AxiosResponse<IMDbResponse<IMDbActor>>) => {
         console.log('Response', response);
         dispatch(success(response.data));

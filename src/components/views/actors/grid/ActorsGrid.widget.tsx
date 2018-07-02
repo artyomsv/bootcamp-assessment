@@ -28,7 +28,7 @@ const styles = (theme: Theme) => createStyles({
   },
   image: {
     width: 185,
-    height: '100%',
+    height: 282,
     background: '#3f4658',
   }
 });
@@ -36,6 +36,11 @@ const styles = (theme: Theme) => createStyles({
 interface ActorsGridProps {
   actors: IMDbActor[];
 }
+
+interface ActorsGridActions {
+  navigateToActor(id: number): void;
+}
+
 
 const constructPath = (path: string) => {
   if (!path) {
@@ -48,7 +53,7 @@ const constructPath = (path: string) => {
   }
 };
 
-const ActorsGrid: React.SFC<ActorsGridProps & WithStyles<typeof styles>> = ({actors, classes}) => (
+const ActorsGrid: React.SFC<ActorsGridProps & ActorsGridActions & WithStyles<typeof styles>> = ({navigateToActor, actors, classes}) => (
 
   <div className={classes.root}>
     {
@@ -58,11 +63,15 @@ const ActorsGrid: React.SFC<ActorsGridProps & WithStyles<typeof styles>> = ({act
           component={'div'}
           className={classes.tile}
         >
-          <img src={constructPath(actor.profile_path)} alt={actor.name} width={185} className={classes.image}/>
+          <img
+            src={constructPath(actor.profile_path)}
+            alt={actor.name}
+            className={classes.image}
+          />
           <GridListTileBar
             title={<span className={classes.title}>{actor.name}</span>}
             actionIcon={
-              <IconButton className={classes.icon}>
+              <IconButton className={classes.icon} onClick={() => navigateToActor(actor.id)}>
                 <InfoIcon/>
               </IconButton>
             }

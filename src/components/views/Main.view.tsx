@@ -13,6 +13,9 @@ const styles = (theme: Theme) => createStyles({
     padding: theme.spacing.unit * 3,
   },
   toolbar: theme.mixins.toolbar,
+  progress: {
+    height: 5,
+  }
 });
 
 interface ActorsViewProps {
@@ -26,7 +29,9 @@ class MainView extends React.Component<ActorsViewProps & WithStyles<typeof style
     return (
       <main className={classes.content}>
         <div className={classes.toolbar}/>
-        {this.props.isFetching && <LinearProgress/>}
+        <div className={classes.progress}>
+          {this.props.isFetching && <LinearProgress/>}
+        </div>
         <div className={classes.view}>
           {component}
         </div>

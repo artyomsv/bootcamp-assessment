@@ -45,12 +45,18 @@ class App extends React.Component<WithStyles<typeof styles>> {
         {/*<ActorsView actors={actors}/>*/}
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/">
+            <Route exact path={AppRouting.ROOT()}>
               <MainView component={<div>Hello</div>} isFetching={true}/>
             </Route>
-            <Route exact path={AppRouting.PEOPLE} component={ActorsView}/>
-            <Route exact path={AppRouting.FILMS}>
+            <Route exact path={AppRouting.ACTORS()} component={ActorsView}/>
+            <Route exact path={AppRouting.MOVIES()}>
               <MainView component={<div>Films</div>} isFetching={true}/>
+            </Route>
+            <Route exact path={AppRouting.ACTORS_BY_ID(':id')}>
+              <MainView component={<div>Actor Details</div>} isFetching={true}/>
+            </Route>
+            <Route exact path={AppRouting.MOVIES_BY_ID(':id')}>
+              <MainView component={<div>Movie Details</div>} isFetching={true}/>
             </Route>
             {/*<Route path={AppRouting.PEOPLE} component={ActorsView}/>*/}
             {/*<Route path={AppRouting.FILMS} render={() => <div>Films</div>}/>*/}

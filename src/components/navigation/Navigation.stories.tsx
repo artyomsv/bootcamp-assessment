@@ -53,14 +53,14 @@ storiesOf('Navigation', module)
     <NavigationMenuItem
       title={'People'}
       icon={People}
-      navigateTo={() => action('navigateTo')(AppRouting.PEOPLE)}
+      navigateTo={() => action('navigateTo')(AppRouting.ACTORS)}
     />
   ))
   .add('Item [Films]', () => (
     <NavigationMenuItem
       title={'Films'}
       icon={Movie}
-      navigateTo={() => action('navigateTo')(AppRouting.FILMS)}
+      navigateTo={() => action('navigateTo')(AppRouting.MOVIES)}
     />
   ))
 ;

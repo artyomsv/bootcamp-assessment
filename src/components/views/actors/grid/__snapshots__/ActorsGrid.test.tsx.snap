@@ -12,5 +12,6 @@ exports[`renders without crashing if renders 1`] = `
       "title": "ActorsGrid-title-4",
     }
   }
+  navigateToActor={[MockFunction]}
 />
 `;

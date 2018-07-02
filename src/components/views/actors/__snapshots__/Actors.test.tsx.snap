@@ -5,11 +5,25 @@ exports[`renders without crashing if renders 1`] = `
   actors={Array []}
   classes={
     Object {
-      "content": "ActorsView-content-1",
+      "textField": "ActorsView-textField-2",
+      "top": "ActorsView-top-1",
     }
   }
+  expand={[MockFunction]}
+  expanded={-1}
   fetchActors={[MockFunction]}
   isFetching={false}
+  navigateToActor={[MockFunction]}
+  navigateToMovie={[MockFunction]}
+  onQueryChange={[MockFunction]}
+  page={
+    Object {
+      "page": 1,
+      "totalPages": 10,
+      "totalResults": 200,
+    }
+  }
+  search=""
   toggleView={[MockFunction]}
   view="grid"
 />

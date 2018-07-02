@@ -20,9 +20,9 @@ interface HeaderPropActions {
 
 const Navigation: React.SFC<HeaderPropActions & WithStyles<typeof styles>> = ({navigateTo, classes}) => (
     <MenuList className={classes.root}>
-      <NavigationMenuItem title={'Home'} icon={Home} navigateTo={() => navigateTo(AppRouting.ROOT)}/>
-      <NavigationMenuItem title={'People'} icon={People} navigateTo={() => navigateTo(AppRouting.PEOPLE)}/>
-      <NavigationMenuItem title={'Films'} icon={Movie} navigateTo={() => navigateTo(AppRouting.FILMS)}/>
+      <NavigationMenuItem title={'Home'} icon={Home} navigateTo={() => navigateTo(AppRouting.ROOT())}/>
+      <NavigationMenuItem title={'People'} icon={People} navigateTo={() => navigateTo(AppRouting.ACTORS())}/>
+      <NavigationMenuItem title={'Films'} icon={Movie} navigateTo={() => navigateTo(AppRouting.MOVIES())}/>
     </MenuList>
 );
 
