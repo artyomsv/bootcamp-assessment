@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<Pagination
+  classes={
+    Object {
+      "pagination": "Pagination-pagination-2",
+      "root": "Pagination-root-1",
+    }
+  }
+  onChangePage={[MockFunction]}
+  page={
+    Object {
+      "page": 0,
+      "totalPages": 10,
+      "totalResults": 200,
+    }
+  }
+/>
+`;
