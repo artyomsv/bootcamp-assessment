@@ -6,8 +6,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Person from './../../../../assets/person.svg';
 import Divider from '@material-ui/core/Divider';
+import {constructPath} from '../Actors.utils';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -79,17 +79,6 @@ interface ActorsListActions {
 
   navigateToMovie(id: number): void;
 }
-
-const constructPath = (path: string) => {
-  if (!path) {
-    return Person;
-  }
-  if (path && path.startsWith('http')) {
-    return path;
-  } else {
-    return '/api/image' + path;
-  }
-};
 
 class ActorsList extends React.Component<ActorsListActions & ActorsListProps & WithStyles<typeof styles>> {
 

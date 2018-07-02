@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {createShallow} from '@material-ui/core/test-utils';
 import ActorsView from './Actors.view';
+import {constructPath} from './Actors.utils';
+import Person from './../../../assets/person.svg';
 
 const shallow = createShallow();
 
@@ -25,5 +27,14 @@ describe('renders without crashing', () => {
     );
 
     expect(result).toMatchSnapshot();
+  });
+});
+
+describe('Test Actor utils', () => {
+  test('image path construction', () => {
+    expect(constructPath('http://www.google.lv/api/image/cat.jpg')).toEqual('http://www.google.lv/api/image/cat.jpg');
+    expect(constructPath('/cat.jpg')).toEqual('/api/image/cat.jpg');
+    expect(constructPath('')).toEqual(Person);
+    expect(constructPath(undefined)).toEqual(Person);
   });
 });
