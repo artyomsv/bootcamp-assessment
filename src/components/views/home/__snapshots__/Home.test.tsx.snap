@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<HomeView
+  classes={
+    Object {
+      "headlines": "HomeView-headlines-5",
+      "link": "HomeView-link-4",
+      "linkText": "HomeView-linkText-6",
+      "paper": "HomeView-paper-3",
+      "root": "HomeView-root-1",
+      "view": "HomeView-view-2",
+    }
+  }
+  navigateToActors={[MockFunction]}
+  navigateToMovies={[MockFunction]}
+/>
+`;
