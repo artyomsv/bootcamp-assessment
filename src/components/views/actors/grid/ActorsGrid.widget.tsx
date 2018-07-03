@@ -5,7 +5,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import {IMDbActor} from '../../../../services/rest.response.types';
-import Person from './../../../../assets/person.svg';
+import {constructPath} from '../Actors.utils';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -40,18 +40,6 @@ interface ActorsGridProps {
 interface ActorsGridActions {
   navigateToActor(id: number): void;
 }
-
-
-const constructPath = (path: string) => {
-  if (!path) {
-    return Person;
-  }
-  if (path && path.startsWith('http')) {
-    return path;
-  } else {
-    return '/api/image' + path;
-  }
-};
 
 const ActorsGrid: React.SFC<ActorsGridProps & ActorsGridActions & WithStyles<typeof styles>> = ({navigateToActor, actors, classes}) => (
 
