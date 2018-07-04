@@ -4,7 +4,7 @@ import ActorsGrid from './../actors/grid/ActorsGrid.widget';
 import ActorsList from './../actors/list/ActorsList.widget';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
-import actors from './../Actors.mock.json';
+import actors from './__mock__/actors.mock.json';
 import {Page} from '../../../services/Rest.service';
 import Switch from '@material-ui/core/Switch';
 import {ActorsViewType} from '../../../store/reducers/Actors.reducer';
