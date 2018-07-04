@@ -15,11 +15,14 @@ const styles = (theme: Theme) => createStyles({
   top: {
     display: 'flex',
     alignItems: 'center',
+    paddingLeft: 80,
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 200,
+    marginTop: 0,
+    marginBottom: 18,
   },
 });
 
