@@ -7,6 +7,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
+import Information from './../../../common/information'
 import {constructPath} from '../Actors.utils';
 
 const styles = (theme: Theme) => createStyles({
@@ -38,25 +39,11 @@ const styles = (theme: Theme) => createStyles({
     cursor: 'pointer',
   },
   movieImage: {
-    width: 185,
-    height: 104,
+    width: 130,
+    // height: 104,
     background: '#3f4658',
     boxShadow: '5px 3px 3px lightgrey',
     cursor: 'pointer',
-  },
-  label: {
-    fontSize: 16,
-    fontWeight: 400,
-    width: 100,
-    textAlign: 'left',
-    paddingRight: '1em',
-  },
-  value: {
-    fontSize: 16,
-    fontWeight: 300,
-  },
-  row: {
-    display: 'flex',
   },
   details: {
     flexDirection: 'column',
@@ -82,13 +69,6 @@ interface ActorsListActions {
 
 class ActorsList extends React.Component<ActorsListActions & ActorsListProps & WithStyles<typeof styles>> {
 
-  renderInfo = (label: string, value: string | number) => (
-    <div className={this.props.classes.row}>
-      <div className={this.props.classes.label}>{label}:</div>
-      <div className={this.props.classes.value}>{value}</div>
-    </div>
-  );
-
   render() {
     const {expand, actors, expanded, classes} = this.props;
     return (
@@ -98,7 +78,7 @@ class ActorsList extends React.Component<ActorsListActions & ActorsListProps & W
             <ExpansionPanel key={actor.id} expanded={expanded === actor.id} onChange={() => expand(actor.id)}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                 <img
-                  src={constructPath(actor.profile_path)}
+                  src={constructPath(actor.profile_path, 185)}
                   alt={actor.name}
                   className={classes.actorImage}
                   onClick={() => this.props.navigateToActor(actor.id)}
@@ -113,20 +93,20 @@ class ActorsList extends React.Component<ActorsListActions & ActorsListProps & W
                     <ExpansionPanelDetails>
                       <div>
                         <img
-                          src={constructPath(action.poster_path)}
+                          src={constructPath(action.poster_path, 185)}
                           alt={action.original_title}
-                          className={classes.actorDetailedImage}
+                          className={classes.movieImage}
                           onClick={() => this.props.navigateToMovie(action.id)}
                         />
                       </div>
                       <div className={classes.details}>
-                        {this.renderInfo('Title', action.original_title)}
-                        {this.renderInfo('Media type', action.media_type)}
-                        {this.renderInfo('Language', action.original_language)}
-                        {this.renderInfo('Release date', action.release_date)}
-                        {this.renderInfo('Rating', action.popularity)}
-                        {this.renderInfo('Vote average', action.vote_average)}
-                        {this.renderInfo('Votes count', action.vote_count)}
+                        <Information label={'Title'} value={action.original_title}/>
+                        <Information label={'Media type'} value={action.media_type}/>
+                        <Information label={'Language'} value={action.original_language}/>
+                        <Information label={'Release date'} value={action.release_date}/>
+                        <Information label={'Rating'} value={action.popularity.toFixed(2)}/>
+                        <Information label={'Vote average'} value={action.vote_average}/>
+                        <Information label={'Votes count'} value={action.vote_count}/>
                       </div>
 
                     </ExpansionPanelDetails>

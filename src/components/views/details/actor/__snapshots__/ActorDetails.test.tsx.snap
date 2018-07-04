@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<withRouter(ActorDetailsView)
+  classes={
+    Object {
+      "button": "withRouter-ActorDetailsView--button-5",
+      "details": "withRouter-ActorDetailsView--details-1",
+      "extendedIcon": "withRouter-ActorDetailsView--extendedIcon-6",
+      "image": "withRouter-ActorDetailsView--image-2",
+      "linkImage": "withRouter-ActorDetailsView--linkImage-3",
+      "movies": "withRouter-ActorDetailsView--movies-4",
+    }
+  }
+  clearState={[MockFunction]}
+  details={Object {}}
+  fetchActorDetails={[MockFunction]}
+  goBack={[MockFunction]}
+  isFetching={false}
+  movies={Array []}
+  navigateToMovie={[MockFunction]}
+/>
+`;

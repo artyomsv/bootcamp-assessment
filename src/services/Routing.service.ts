@@ -1,5 +1,9 @@
 import {AppView} from '../store/reducers/Navigation.reducer';
 
+export interface PathParams {
+  id: number;
+}
+
 export interface AppRoutingData {
   path: (id?: number | string) => string;
   view: AppView;

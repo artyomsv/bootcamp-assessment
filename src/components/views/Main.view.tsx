@@ -16,7 +16,7 @@ const styles = (theme: Theme) => createStyles({
   toolbar: theme.mixins.toolbar,
   progress: {
     height: 5,
-  }
+  },
 });
 
 interface ActorsViewProps {

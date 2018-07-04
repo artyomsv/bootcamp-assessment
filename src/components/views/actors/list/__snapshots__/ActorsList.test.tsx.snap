@@ -7,14 +7,11 @@ exports[`renders without crashing if renders 1`] = `
     Object {
       "actorDetailedImage": "ActorsList-actorDetailedImage-4",
       "actorImage": "ActorsList-actorImage-3",
-      "column": "ActorsList-column-10",
-      "details": "ActorsList-details-9",
+      "column": "ActorsList-column-7",
+      "details": "ActorsList-details-6",
       "heading": "ActorsList-heading-2",
-      "label": "ActorsList-label-6",
       "movieImage": "ActorsList-movieImage-5",
       "root": "ActorsList-root-1",
-      "row": "ActorsList-row-8",
-      "value": "ActorsList-value-7",
     }
   }
   expand={[MockFunction]}

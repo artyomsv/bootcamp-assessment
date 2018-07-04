@@ -4,6 +4,7 @@ import {persistReducer} from 'redux-persist';
 import {reducer as toastr} from 'react-redux-toastr';
 import {navigationReducer} from './Navigation.reducer';
 import {actorsReducer} from './Actors.reducer';
+import {actorDetailsReducer} from './ActorDetails.reducer';
 
 const rootPersistConfig = {
   key: 'root',
@@ -14,6 +15,7 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   navigation: navigationReducer,
   actors: actorsReducer,
+  actor: actorDetailsReducer,
   toastr
 });
 

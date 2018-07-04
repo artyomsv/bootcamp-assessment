@@ -9,7 +9,7 @@ export interface NavigationState {
 }
 
 const initial: NavigationState = {
-  checked: true,
+  checked: false,
   selectedPage: 'home',
 };
 

@@ -52,7 +52,7 @@ const ActorsGrid: React.SFC<ActorsGridProps & ActorsGridActions & WithStyles<typ
           className={classes.tile}
         >
           <img
-            src={constructPath(actor.profile_path)}
+            src={constructPath(actor.profile_path, 185)}
             alt={actor.name}
             className={classes.image}
           />

@@ -5,6 +5,36 @@ export interface IMDbResponse<T> {
   total_results: number
 }
 
+export interface IMDbMoviesResponse {
+  cast: IMDbMovie[];
+  crew: IMDbCrew[];
+  id: number;
+}
+
+export interface IMDbMovie {
+  character: string;
+  credit_id: string;
+  poster_path: string;
+  id: number;
+  video: boolean;
+  vote_count: number;
+  adult: false;
+  backdrop_path: string;
+  genre_ids: number[];
+  original_language: string;
+  original_title: string;
+  popularity: number;
+  title: string;
+  vote_average: number;
+  overview: string;
+  release_date: string;
+}
+
+export interface IMDbCrew {
+
+}
+
+
 export interface IMDbKnowFor {
   adult: boolean;
   backdrop_path: string;
@@ -30,4 +60,20 @@ export interface IMDbActor {
   name: string;
   popularity: number;
   profile_path: string;
+}
+
+export interface IMDbActorDetails {
+  birthday: string;
+  deathday: string;
+  id: number;
+  name: string;
+  also_known_as: string[];
+  gender: number;
+  biography: string;
+  popularity: number;
+  place_of_birth: string;
+  profile_path: string;
+  adult: boolean;
+  imdb_id: string;
+  homepage: string;
 }
