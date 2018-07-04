@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<Information
+  classes={
+    Object {
+      "label": "Information-label-1",
+      "row": "Information-row-3",
+      "value": "Information-value-2",
+    }
+  }
+  label="label"
+  value="value"
+/>
+`;
