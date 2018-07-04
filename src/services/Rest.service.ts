@@ -7,15 +7,16 @@ export interface Page {
 }
 
 // const apiBaseUrl = 'https://api.themoviedb.org/3';
-const apiToken = 'd7ec8227bbe7c123c268e03a0b0e39ae';
+// const apiToken = 'd7ec8227bbe7c123c268e03a0b0e39ae';
 const defaultParams = {
-  api_key: apiToken,
-  language: 'en-US'
+  api_key: process.env.REACT_APP_API_TOKEN,
+  language: 'en-US',
+  include_adult: false,
 };
 
 const instanceConfig: AxiosRequestConfig = {
   baseURL: '/api/data/',
-  timeout: 10000,
+  timeout: 20000,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     Accept: 'application/json',
@@ -25,6 +26,11 @@ const instanceConfig: AxiosRequestConfig = {
 export const axios = () => {
   return Axios.create(instanceConfig);
 };
+
+export const compose = (promises: any[]) => {
+  return Axios.all(promises);
+};
+
 
 export const actors = (query?: string, page?: Page) => {
   if (query && query.length > 0) {
@@ -45,6 +51,20 @@ export const actors = (query?: string, page?: Page) => {
       }
     );
   }
-
 };
 
+export const actor = (id: number) => {
+  return axios().get('/person/' + id, {
+    params: {
+      ...defaultParams
+    }
+  });
+};
+
+export const movies = (id: number) => {
+  return axios().get(`/person/${id}/movie_credits`, {
+    params: {
+      ...defaultParams
+    }
+  });
+};

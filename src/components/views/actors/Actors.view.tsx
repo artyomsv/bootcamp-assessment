@@ -67,7 +67,6 @@ class ActorsView extends React.Component<ActorsViewProps & ActorsViewActions & W
     if (search.length >= 3 || search.length === 0) {
       this.fetchActorsDebounced(search);
     }
-
   };
 
   renderActorsView = () => (
@@ -117,7 +116,7 @@ class ActorsView extends React.Component<ActorsViewProps & ActorsViewActions & W
   render() {
     return (
       <MainView
-        component={this.props.actors.length > 0 && this.renderActorsView()}
+        component={this.renderActorsView()}
         isFetching={this.props.isFetching}
       />
     );

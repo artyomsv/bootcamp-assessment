@@ -8,6 +8,7 @@ import {ToastrState} from 'react-redux-toastr';
 import createHistory from 'history/createBrowserHistory';
 import {routerMiddleware} from 'react-router-redux';
 import {ActorsState} from './reducers/Actors.reducer';
+import {ActorDetailsState} from './reducers/ActorDetails.reducer';
 
 export const history = createHistory();
 
@@ -36,6 +37,7 @@ const configureStore = () => {
 export interface ApplicationState {
   navigation: NavigationState,
   actors: ActorsState,
+  actor: ActorDetailsState,
   toastr: ToastrState,
 }
 

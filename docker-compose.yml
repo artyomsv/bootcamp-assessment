@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  application:
+    restart: always
+    image: web
+    container_name: "web_app"
+    environment:
+      REACT_APP_API_TOKEN: ${REACT_APP_API_TOKEN}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - 80:9000
+networks:
+  default:
+    driver: bridge
