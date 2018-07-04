@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import ActorsGrid from './grid';
+import ItemsGrid from '../../common/grid';
 import ActorsList from './list';
 import MainView from './../Main.view';
 import {Page} from '../../../services/Rest.service';
-import {IMDbActor} from '../../../services/rest.response.types';
+import {IMDbKnownActor} from '../../../services/rest.response.types';
 import Switch from '@material-ui/core/Switch';
 import {ActorsViewType} from '../../../store/reducers/Actors.reducer';
 import Pagination from '../../common/pagination/Pagination.widget';
@@ -24,7 +24,7 @@ const styles = (theme: Theme) => createStyles({
 });
 
 export interface ActorsViewProps {
-  actors: IMDbActor[];
+  actors: IMDbKnownActor[];
   view: ActorsViewType;
   isFetching: boolean;
   expanded: number;
@@ -98,9 +98,9 @@ class ActorsView extends React.Component<ActorsViewProps & ActorsViewActions & W
       </div>
       {
         this.props.view === 'grid' ?
-          <ActorsGrid
-            actors={this.props.actors}
-            navigateToActor={this.props.navigateToActor}
+          <ItemsGrid
+            values={this.props.actors}
+            navigateTo={this.props.navigateToActor}
           /> :
           <ActorsList
             actors={this.props.actors}

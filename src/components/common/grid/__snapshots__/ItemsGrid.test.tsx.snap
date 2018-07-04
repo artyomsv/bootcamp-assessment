@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<ItemsGrid
+  classes={
+    Object {
+      "icon": "ItemsGrid-icon-2",
+      "image": "ItemsGrid-image-5",
+      "root": "ItemsGrid-root-1",
+      "tile": "ItemsGrid-tile-3",
+      "title": "ItemsGrid-title-4",
+    }
+  }
+  navigateTo={[MockFunction]}
+  values={Array []}
+/>
+`;

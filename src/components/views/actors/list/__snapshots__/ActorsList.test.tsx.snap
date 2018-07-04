@@ -5,12 +5,10 @@ exports[`renders without crashing if renders 1`] = `
   actors={Array []}
   classes={
     Object {
-      "actorDetailedImage": "ActorsList-actorDetailedImage-4",
-      "actorImage": "ActorsList-actorImage-3",
-      "column": "ActorsList-column-7",
-      "details": "ActorsList-details-6",
-      "heading": "ActorsList-heading-2",
-      "movieImage": "ActorsList-movieImage-5",
+      "column": "ActorsList-column-5",
+      "details": "ActorsList-details-4",
+      "heading": "ActorsList-heading-3",
+      "image": "ActorsList-image-2",
       "root": "ActorsList-root-1",
     }
   }

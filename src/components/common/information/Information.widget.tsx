@@ -31,12 +31,12 @@ const Information: React.SFC<InformationProps & WithStyles<typeof styles>> = ({l
       isArray(value) ?
         (value as any[]).map((v, index) => (
           <div className={classes.row} key={`${label}|${index}`}>
-            <div style={{fontSize, width}} className={classes.label}>{`${index === 0 ? label + ':' : ''}`}</div>
+            <div style={{fontSize, width, minWidth: width}} className={classes.label}>{`${index === 0 ? label + ':' : ''}`}</div>
             <div style={{fontSize}} className={classes.value}>{v}</div>
           </div>
         )) :
         <div className={classes.row}>
-          <div style={{fontSize, width}} className={classes.label}>{label}:</div>
+          <div style={{fontSize, width, minWidth: width}} className={classes.label}>{label}:</div>
           <div style={{fontSize}} className={classes.value}>{value}</div>
         </div>
     }

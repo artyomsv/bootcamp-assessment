@@ -4,8 +4,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import {IMDbActor} from '../../../../services/rest.response.types';
-import {constructPath} from '../Actors.utils';
+import {IMDbKnownActor} from '../../../services/rest.response.types';
+import Image from '../image/Image.widget';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -21,45 +21,49 @@ const styles = (theme: Theme) => createStyles({
   },
   tile: {
     padding: 10,
+    width: 195,
+    height: 288,
   },
   title: {
     fontSize: '0.8rem',
     fontWeight: 300,
   },
   image: {
-    width: 185,
-    height: 282,
-    background: '#3f4658',
-  }
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
-interface ActorsGridProps {
-  actors: IMDbActor[];
+interface ItemsGridProps {
+  values: IMDbKnownActor[];
 }
 
-interface ActorsGridActions {
-  navigateToActor(id: number): void;
+interface ItemsGridActions {
+  navigateTo(id: number): void;
 }
 
-const ActorsGrid: React.SFC<ActorsGridProps & ActorsGridActions & WithStyles<typeof styles>> = ({navigateToActor, actors, classes}) => (
+const ItemsGrid: React.SFC<ItemsGridProps & ItemsGridActions & WithStyles<typeof styles>> = ({navigateTo, values, classes}) => (
 
   <div className={classes.root}>
     {
-      actors.map((actor: IMDbActor) => (
+      values.map((value: IMDbKnownActor) => (
         <GridListTile
-          key={actor.id}
+          key={value.id}
           component={'div'}
           className={classes.tile}
         >
-          <img
-            src={constructPath(actor.profile_path, 185)}
-            alt={actor.name}
-            className={classes.image}
-          />
+          <div className={classes.image}>
+            <Image
+              path={value.profile_path}
+              resolution={185}
+              width={185}
+            />
+          </div>
           <GridListTileBar
-            title={<span className={classes.title}>{actor.name}</span>}
+            title={<span className={classes.title}>{value.name}</span>}
             actionIcon={
-              <IconButton className={classes.icon} onClick={() => navigateToActor(actor.id)}>
+              <IconButton className={classes.icon} onClick={() => navigateTo(value.id)}>
                 <InfoIcon/>
               </IconButton>
             }
@@ -71,4 +75,4 @@ const ActorsGrid: React.SFC<ActorsGridProps & ActorsGridActions & WithStyles<typ
 
 );
 
-export default withStyles(styles)(ActorsGrid);
+export default withStyles(styles)(ItemsGrid);

@@ -16,7 +16,7 @@ const defaultParams = {
 
 const instanceConfig: AxiosRequestConfig = {
   baseURL: '/api/data/',
-  timeout: 20000,
+  timeout: 200000,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     Accept: 'application/json',
@@ -63,6 +63,14 @@ export const actor = (id: number) => {
 
 export const movies = (id: number) => {
   return axios().get(`/person/${id}/movie_credits`, {
+    params: {
+      ...defaultParams
+    }
+  });
+};
+
+export const movie = (id: number) => {
+  return axios().get(`/movie/${id}`, {
     params: {
       ...defaultParams
     }

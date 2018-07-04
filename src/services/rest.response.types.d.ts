@@ -6,34 +6,81 @@ export interface IMDbResponse<T> {
 }
 
 export interface IMDbMoviesResponse {
-  cast: IMDbMovie[];
+  cast: IMDbCastMovie[];
   crew: IMDbCrew[];
   id: number;
 }
 
 export interface IMDbMovie {
-  character: string;
-  credit_id: string;
-  poster_path: string;
   id: number;
-  video: boolean;
-  vote_count: number;
   adult: false;
   backdrop_path: string;
-  genre_ids: number[];
   original_language: string;
   original_title: string;
-  popularity: number;
-  title: string;
-  vote_average: number;
   overview: string;
+  popularity: number;
+  poster_path: string;
   release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
+
+export interface IMDbCastMovie extends IMDbMovie {
+  character: string;
+  credit_id: string;
+  genre_ids: number[];
+}
+
+export interface IMDbMovieDetails extends IMDbMovie {
+  belongs_to_collection: IMDbCollection;
+  budget: number;
+  genres: IMDbGenre[];
+  homepage: string;
+  imdb_id: number;
+  production_companies: IMDbProductionCompany[];
+  production_countries: IMDbProductionCountry[];
+  revenue: number
+  runtime: number
+  spoken_languages: IMDbSpokenLanguage[];
+  status: string;
+  tagline: string;
+}
+
+export interface IMDbSpokenLanguage {
+  iso_3166_1: string;
+  name: string;
+}
+
+export interface IMDbProductionCountry {
+  iso_3166_1: string;
+  name: string;
+}
+
+export interface IMDbProductionCompany {
+  id: number;
+  logo_path: string;
+  name: string;
+  original_country: string;
+}
+
+export interface IMDbGenre {
+  id: number;
+  name: string;
+}
+
+export interface IMDbCollection {
+  id: number;
+  name: string;
+  poster_path: string;
+  backdrop_path: string;
+}
+
 
 export interface IMDbCrew {
 
 }
-
 
 export interface IMDbKnowFor {
   adult: boolean;
@@ -54,26 +101,26 @@ export interface IMDbKnowFor {
 }
 
 export interface IMDbActor {
-  adult: boolean;
   id: number;
-  known_for: IMDbKnowFor[];
+  adult: boolean;
   name: string;
   popularity: number;
   profile_path: string;
 }
 
-export interface IMDbActorDetails {
+export interface IMDbKnownActor extends IMDbActor {
+  known_for: IMDbKnowFor[];
+}
+
+export interface IMDbActorDetails extends IMDbActor {
   birthday: string;
   deathday: string;
-  id: number;
-  name: string;
   also_known_as: string[];
   gender: number;
   biography: string;
-  popularity: number;
   place_of_birth: string;
-  profile_path: string;
-  adult: boolean;
   imdb_id: string;
   homepage: string;
 }
+
+

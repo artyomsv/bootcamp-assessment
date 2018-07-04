@@ -1,0 +1,62 @@
+{
+  "adult": false,
+  "backdrop_path": "http://image.tmdb.org/t/p/w185/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg",
+  "belongs_to_collection": {
+    "id": 284433,
+    "name": "Guardians of the Galaxy Collection",
+    "poster_path": "http://image.tmdb.org/t/p/w185/iL8mukexAqEg0xK783rG561tdd8.jpg",
+    "backdrop_path": "/jdyyjulTBU8YUYAUvQFj6U1g2Pj.jpg"
+  },
+  "budget": 170000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    }
+  ],
+  "homepage": "http://marvel.com/guardians",
+  "id": 118340,
+  "imdb_id": "tt2015381",
+  "original_language": "en",
+  "original_title": "Guardians of the Galaxy",
+  "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+  "popularity": 50.557044,
+  "poster_path": "http://image.tmdb.org/t/p/w185/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg",
+  "production_companies": [
+    {
+      "id": 420,
+      "logo_path": "http://image.tmdb.org/t/p/w185/hUzeosd33nzE5MCNsZxCGEKTXaQ.png",
+      "name": "Marvel Studios",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "2014-07-30",
+  "revenue": 773328629,
+  "runtime": 121,
+  "spoken_languages": [
+    {
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "All heroes start somewhere.",
+  "title": "Guardians of the Galaxy",
+  "video": false,
+  "vote_average": 7.9,
+  "vote_count": 13643
+}

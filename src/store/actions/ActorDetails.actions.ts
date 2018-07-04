@@ -2,7 +2,7 @@ import {createAction} from 'redux-actions';
 import {Dispatch} from 'redux';
 import {AxiosError} from 'axios';
 import {actor, compose, movies} from '../../services/Rest.service';
-import {IMDbActorDetails, IMDbMovie} from '../../services/rest.response.types';
+import {IMDbActorDetails, IMDbCastMovie} from '../../services/rest.response.types';
 
 export const ACTOR_DETAILS_START = '[Actor Details] Start Fetching';
 const start = () => {
@@ -15,7 +15,7 @@ const successActord = (data: IMDbActorDetails) => {
 };
 
 export const ACTOR_MOVIES_SUCCESS = '[Actor Details] Movies Fetch Success';
-const successMovies = (data: IMDbMovie) => {
+const successMovies = (data: IMDbCastMovie) => {
   return createAction(ACTOR_MOVIES_SUCCESS)(data);
 };
 

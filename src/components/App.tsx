@@ -5,12 +5,12 @@ import NavigationDrawer from './navigation/drawer';
 import ActorsView from './views/actors';
 import HomeView from './views/home';
 import {ConnectedRouter} from 'react-router-redux';
-import {Switch} from 'react-router';
-import {Route} from 'react-router';
+import {Route, Switch} from 'react-router';
 import {history} from '../store/store';
 import MainView from './views/Main.view';
 import {AppRouting} from '../services/Routing.service';
-import ActorDetailsView from './views/details/actor/index'
+import ActorDetailsView from './views/details/actor/index';
+import MovieDetailsView from './views/details/movie/index';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -50,9 +50,7 @@ class App extends React.Component<WithStyles<typeof styles>> {
               <MainView component={<div>Films</div>} isFetching={true}/>
             </Route>
             <Route exact path={AppRouting.actorsById.path(':id')} component={ActorDetailsView}/>
-            <Route exact path={AppRouting.moviesById.path(':id')}>
-              <MainView component={<div>Movie Details</div>} isFetching={true}/>
-            </Route>
+            <Route exact path={AppRouting.moviesById.path(':id')} component={MovieDetailsView}/>
           </Switch>
         </ConnectedRouter>
       </div>

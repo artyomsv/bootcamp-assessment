@@ -3,15 +3,14 @@ import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
 import {RouteComponentProps, withRouter} from 'react-router';
 import {PathParams} from '../../../../services/Routing.service';
 import MainView from '../../Main.view';
-import {IMDbActorDetails, IMDbMovie} from '../../../../services/rest.response.types';
+import {IMDbActorDetails, IMDbCastMovie} from '../../../../services/rest.response.types';
 import Paper from '@material-ui/core/Paper';
-import {constructPath} from '../../actors/Actors.utils';
 import Information from './../../../common/information';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import {Link} from 'react-router-dom';
-import * as classNames from 'classnames';
 import Button from '@material-ui/core/Button';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import Image from './../../../common/image/Image.widget';
 
 const styles = (theme: Theme) => createStyles({
   details: {
@@ -19,8 +18,8 @@ const styles = (theme: Theme) => createStyles({
     paddingLeft: '0.75em',
   },
   image: {
-    background: '#3f4658',
-    margin: '1em',
+    display: 'flex',
+    justifyContent: 'center',
   },
   linkImage: {
     cursor: 'pointer',
@@ -39,7 +38,7 @@ const styles = (theme: Theme) => createStyles({
 export interface ActorDetailsProps {
   isFetching: boolean;
   details?: IMDbActorDetails;
-  movies?: IMDbMovie[];
+  movies?: IMDbCastMovie[];
 }
 
 export interface ActorDetailsActions {
@@ -72,18 +71,17 @@ class ActorDetailsView extends React.Component<ActorDetailsProps & ActorDetailsA
       <MainView
         component={details && (
           <React.Fragment>
-            <Button variant="outlined"  size="small" className={classes.button} onClick={this.props.goBack}>
-              <ArrowBack className={classes.extendedIcon} /> Back
+            <Button variant="outlined" size="small" className={classes.button} onClick={this.props.goBack}>
+              <ArrowBack className={classes.extendedIcon}/> Back
             </Button>
             <div>
               <Paper square={true}>
                 <ExpansionPanelDetails>
 
-                  <div>
-                    <img
-                      src={constructPath(details.profile_path, 200)}
-                      alt={details.name}
-                      className={classes.image}
+                  <div className={classes.image}>
+                    <Image
+                      path={details.profile_path}
+                      resolution={200}
                       width={200}
                     />
                   </div>
@@ -108,15 +106,14 @@ class ActorDetailsView extends React.Component<ActorDetailsProps & ActorDetailsA
               </Paper>
 
               {
-                this.props.movies && this.props.movies.map((movie: IMDbMovie) => (
+                this.props.movies && this.props.movies.map((movie: IMDbCastMovie) => (
                   <Paper square={true} className={classes.movies} key={movie.id}>
                     <ExpansionPanelDetails>
 
-                      <div>
-                        <img
-                          src={constructPath(movie.poster_path, 200)}
-                          alt={movie.original_title}
-                          className={classNames(classes.image, classes.linkImage)}
+                      <div className={classes.image}>
+                        <Image
+                          path={movie.poster_path}
+                          resolution={200}
                           width={160}
                           onClick={() => this.props.navigateToMovie(movie.id)}
                         />
