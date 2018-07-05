@@ -6,9 +6,11 @@ import reducers from './reducers';
 import {NavigationState} from './reducers/Navigation.reducer';
 import {ToastrState} from 'react-redux-toastr';
 import createHistory from 'history/createBrowserHistory';
-import {routerMiddleware} from 'react-router-redux';
+import {routerMiddleware, RouterState} from 'react-router-redux';
 import {ActorsState} from './reducers/Actors.reducer';
 import {ActorDetailsState} from './reducers/ActorDetails.reducer';
+import {MovieDetailsState} from './reducers/MovieDetails.reducer';
+import {MoviesState} from './reducers/Movies.reducer';
 
 export const history = createHistory();
 
@@ -38,7 +40,10 @@ export interface ApplicationState {
   navigation: NavigationState,
   actors: ActorsState,
   actor: ActorDetailsState,
+  movies: MoviesState,
+  movie: MovieDetailsState,
   toastr: ToastrState,
+  router: RouterState,
 }
 
 export const store: Store<ApplicationState> = configureStore();

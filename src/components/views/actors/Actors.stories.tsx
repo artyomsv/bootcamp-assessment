@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ActorsView from './../actors/Actors.view';
-import ActorsGrid from './../actors/grid/ActorsGrid.widget';
+import ItemsGrid from '../../common/grid/ItemsGrid.widget';
 import ActorsList from './../actors/list/ActorsList.widget';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
@@ -67,7 +67,7 @@ storiesOf('Actors View', module)
     );
   })
   .add('Actors Grid', () => (
-    <ActorsGrid actors={actors} navigateToActor={(id: number) => action('navigateToActor')(id)}/>
+    <ItemsGrid values={actors} navigateTo={(id: number) => action('navigateTo')(id)}/>
   ))
   .add('Actors List', () => {
 

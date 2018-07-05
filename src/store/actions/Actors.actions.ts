@@ -2,7 +2,7 @@ import {createAction} from 'redux-actions';
 import {Dispatch} from 'redux';
 import {AxiosError, AxiosResponse} from 'axios';
 import {actors, Page} from '../../services/Rest.service';
-import {IMDbActor, IMDbResponse} from '../../services/rest.response.types';
+import {IMDbKnownActor, IMDbResponse} from '../../services/rest.response.types';
 
 export const ACTORS_START = '[Actors] Start Fetching';
 const start = () => {
@@ -10,7 +10,7 @@ const start = () => {
 };
 
 export const ACTORS_SUCCESS = '[Actors] Fetch Success';
-const success = (data: IMDbResponse<IMDbActor>) => {
+const success = (data: IMDbResponse<IMDbKnownActor>) => {
   return createAction(ACTORS_SUCCESS)(data);
 };
 
@@ -39,12 +39,10 @@ export const fetchActorsAction = (query?: string, page?: Page) => {
   return (dispatch: Dispatch) => {
     dispatch(start());
     actors(query, page)
-      .then((response: AxiosResponse<IMDbResponse<IMDbActor>>) => {
-        console.log('Response', response);
+      .then((response: AxiosResponse<IMDbResponse<IMDbKnownActor>>) => {
         dispatch(success(response.data));
       })
       .catch((error: AxiosError) => {
-        console.log('Error', error);
         dispatch(failure(error));
       });
   };

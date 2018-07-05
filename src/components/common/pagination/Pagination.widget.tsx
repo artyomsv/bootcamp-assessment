@@ -18,7 +18,7 @@ const styles = (theme: Theme) => createStyles({
     top: 64,
   },
   pagination: {
-    // width: 'calc(100% - 62px)',
+     width: 'calc(100% - 262px)',
   },
 });
 

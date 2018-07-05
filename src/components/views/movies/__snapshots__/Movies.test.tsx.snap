@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing if renders 1`] = `
+<ActorsView
+  classes={
+    Object {
+      "textField": "ActorsView-textField-2",
+      "top": "ActorsView-top-1",
+    }
+  }
+  fetchMovies={[MockFunction]}
+  isFetching={false}
+  movies={Array []}
+  navigateToMovie={[MockFunction]}
+  onQueryChange={[MockFunction]}
+  page={
+    Object {
+      "page": 1,
+      "totalPages": 10,
+      "totalResults": 200,
+    }
+  }
+  search=""
+/>
+`;

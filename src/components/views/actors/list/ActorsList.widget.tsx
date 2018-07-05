@@ -1,18 +1,23 @@
 import * as React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {IMDbActor, IMDbKnowFor} from '../../../../services/rest.response.types';
+import {IMDbKnowFor, IMDbKnownActor} from '../../../../services/rest.response.types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
-import Information from './../../../common/information'
-import {constructPath} from '../Actors.utils';
+import Information from './../../../common/information';
+import Image from './../../../common/image/Image.widget';
 
 const styles = (theme: Theme) => createStyles({
   root: {
     width: '100%',
+  },
+  image: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   heading: {
     fontSize: theme.typography.pxToRem(20),
@@ -24,27 +29,6 @@ const styles = (theme: Theme) => createStyles({
     display: 'flex',
     alignItems: 'center',
   },
-  actorImage: {
-    width: 30,
-    height: 45,
-    background: '#3f4658',
-    borderRadius: 3,
-    cursor: 'pointer',
-  },
-  actorDetailedImage: {
-    width: 100,
-    height: 152,
-    background: '#3f4658',
-    borderRadius: 7,
-    cursor: 'pointer',
-  },
-  movieImage: {
-    width: 130,
-    // height: 104,
-    background: '#3f4658',
-    boxShadow: '5px 3px 3px lightgrey',
-    cursor: 'pointer',
-  },
   details: {
     flexDirection: 'column',
     paddingLeft: '0.75em',
@@ -55,7 +39,7 @@ const styles = (theme: Theme) => createStyles({
 });
 
 interface ActorsListProps {
-  actors: IMDbActor[];
+  actors: IMDbKnownActor[];
   expanded: number;
 }
 
@@ -74,15 +58,17 @@ class ActorsList extends React.Component<ActorsListActions & ActorsListProps & W
     return (
       <div className={classes.root}>
         {
-          actors.map((actor: IMDbActor) => (
+          actors.map((actor: IMDbKnownActor) => (
             <ExpansionPanel key={actor.id} expanded={expanded === actor.id} onChange={() => expand(actor.id)}>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                <img
-                  src={constructPath(actor.profile_path, 185)}
-                  alt={actor.name}
-                  className={classes.actorImage}
-                  onClick={() => this.props.navigateToActor(actor.id)}
-                />
+                <div className={classes.image}>
+                  <Image
+                    path={actor.profile_path}
+                    resolution={185}
+                    width={30}
+                    onClick={() => this.props.navigateToActor(actor.id)}
+                  />
+                </div>
                 <Typography className={classes.heading}>{actor.name}</Typography>
               </ExpansionPanelSummary>
 
@@ -92,10 +78,10 @@ class ActorsList extends React.Component<ActorsListActions & ActorsListProps & W
                     <Divider/>
                     <ExpansionPanelDetails>
                       <div>
-                        <img
-                          src={constructPath(action.poster_path, 185)}
-                          alt={action.original_title}
-                          className={classes.movieImage}
+                        <Image
+                          path={action.poster_path}
+                          resolution={185}
+                          width={130}
                           onClick={() => this.props.navigateToMovie(action.id)}
                         />
                       </div>

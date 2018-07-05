@@ -1,5 +1,5 @@
 import {Action, handleActions} from 'redux-actions';
-import {IMDbActorDetails, IMDbMovie} from '../../services/rest.response.types';
+import {IMDbActorDetails, IMDbCastMovie} from '../../services/rest.response.types';
 import {
   ACTOR_DETAILS_CLEAR,
   ACTOR_DETAILS_FAILURE,
@@ -11,7 +11,7 @@ import {
 export interface ActorDetailsState {
   isFetching: boolean;
   details?: IMDbActorDetails;
-  movies?: IMDbMovie[];
+  movies?: IMDbCastMovie[];
 }
 
 const initial: ActorDetailsState = {
@@ -31,7 +31,7 @@ export const actorDetailsReducer = handleActions(
       } as ActorDetailsState;
     },
 
-    [ACTOR_MOVIES_SUCCESS]: (state: ActorDetailsState, action: Action<IMDbMovie>) => {
+    [ACTOR_MOVIES_SUCCESS]: (state: ActorDetailsState, action: Action<IMDbCastMovie>) => {
       return {
         ...state,
         movies: action.payload
