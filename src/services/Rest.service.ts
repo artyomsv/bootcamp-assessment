@@ -86,6 +86,13 @@ export const movie = (id: number) => {
     }
   });
 };
+export const movieActors = (id: number) => {
+  return axios().get(`/movie/${id}/credits`, {
+    params: {
+      ...defaultParams
+    }
+  });
+};
 
 export const movies = (query?: string, page?: Page) => {
   if (query && query.length > 0) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
 import ItemsGrid from '../../common/grid';
-import ActorsList from './list';
+import ActorsList from '../../common/list';
 import MainView from './../Main.view';
 import {Page} from '../../../services/Rest.service';
 import {IMDbKnownActor} from '../../../services/rest.response.types';
