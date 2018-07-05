@@ -1,4 +1,5 @@
-import {default as Axios, AxiosRequestConfig} from 'axios';
+import {AxiosRequestConfig, default as Axios} from 'axios';
+import {toastr} from 'react-redux-toastr';
 
 export interface Page {
   page: number;
@@ -6,8 +7,6 @@ export interface Page {
   totalPages: number;
 }
 
-// const apiBaseUrl = 'https://api.themoviedb.org/3';
-// const apiToken = 'd7ec8227bbe7c123c268e03a0b0e39ae';
 const defaultParams = {
   api_key: process.env.REACT_APP_API_TOKEN,
   language: 'en-US',
@@ -24,7 +23,18 @@ const instanceConfig: AxiosRequestConfig = {
 };
 
 export const axios = () => {
-  return Axios.create(instanceConfig);
+  const instance = Axios.create(instanceConfig);
+  instance.interceptors.response
+    .use(undefined, (error) => {
+      console.log(error);
+      if (!!error.response && error.response.status >= 300) {
+        toastr.error('Error', error.response.data.status_message);
+      } else if (!error.response) {
+        toastr.error('Error', error.message);
+      }
+      return Promise.reject(error);
+    });
+  return instance;
 };
 
 export const compose = (promises: any[]) => {

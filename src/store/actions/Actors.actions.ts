@@ -40,11 +40,9 @@ export const fetchActorsAction = (query?: string, page?: Page) => {
     dispatch(start());
     actors(query, page)
       .then((response: AxiosResponse<IMDbResponse<IMDbKnownActor>>) => {
-        console.log('Response', response);
         dispatch(success(response.data));
       })
       .catch((error: AxiosError) => {
-        console.log('Error', error);
         dispatch(failure(error));
       });
   };
