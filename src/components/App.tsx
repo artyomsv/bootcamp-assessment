@@ -74,9 +74,14 @@ class App extends React.Component<WithStyles<typeof styles>> {
               })}
             />
 
-            <Route exact path={AppRouting.movies.path()}>
-              <div>Films</div>
-            </Route>
+            <Route
+              exact
+              path={AppRouting.movies.path()}
+              component={Loadable({
+                loader: () => import(/* webpackChunkName: "movies" */ './views/movies'),
+                loading: Loading,
+              })}
+            />
 
             <Route
               exact

@@ -10,6 +10,7 @@ import {routerMiddleware, RouterState} from 'react-router-redux';
 import {ActorsState} from './reducers/Actors.reducer';
 import {ActorDetailsState} from './reducers/ActorDetails.reducer';
 import {MovieDetailsState} from './reducers/MovieDetails.reducer';
+import {MoviesState} from './reducers/Movies.reducer';
 
 export const history = createHistory();
 
@@ -39,6 +40,7 @@ export interface ApplicationState {
   navigation: NavigationState,
   actors: ActorsState,
   actor: ActorDetailsState,
+  movies: MoviesState,
   movie: MovieDetailsState,
   toastr: ToastrState,
   router: RouterState,

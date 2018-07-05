@@ -71,7 +71,7 @@ export const actor = (id: number) => {
   });
 };
 
-export const movies = (id: number) => {
+export const credits = (id: number) => {
   return axios().get(`/person/${id}/movie_credits`, {
     params: {
       ...defaultParams
@@ -85,4 +85,25 @@ export const movie = (id: number) => {
       ...defaultParams
     }
   });
+};
+
+export const movies = (query?: string, page?: Page) => {
+  if (query && query.length > 0) {
+    return axios().get('/search/movie', {
+        params: {
+          ...defaultParams,
+          query,
+          page: !!page ? page.page : 1
+        }
+      }
+    );
+  } else {
+    return axios().get('/movie/popular', {
+        params: {
+          ...defaultParams,
+          page: !!page ? page.page : 1
+        }
+      }
+    );
+  }
 };

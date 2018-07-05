@@ -7,6 +7,7 @@ import {actorsReducer} from './Actors.reducer';
 import {actorDetailsReducer} from './ActorDetails.reducer';
 import {movieDetailsReducer} from './MovieDetails.reducer';
 import {routerReducer} from 'react-router-redux';
+import {moviesReducer} from './Movies.reducer';
 
 const rootPersistConfig = {
   key: 'root',
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   navigation: navigationReducer,
   actors: actorsReducer,
   actor: actorDetailsReducer,
+  movies: moviesReducer,
   movie: movieDetailsReducer,
   toastr,
   router: routerReducer

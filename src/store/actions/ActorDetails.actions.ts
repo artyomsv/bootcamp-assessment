@@ -1,7 +1,7 @@
 import {createAction} from 'redux-actions';
 import {Dispatch} from 'redux';
 import {AxiosError} from 'axios';
-import {actor, compose, movies} from '../../services/Rest.service';
+import {actor, compose, credits} from '../../services/Rest.service';
 import {IMDbActorDetails, IMDbCastMovie} from '../../services/rest.response.types';
 
 export const ACTOR_DETAILS_START = '[Actor Details] Start Fetching';
@@ -38,7 +38,7 @@ export const fetchActorDetailsAction = (id: number) => {
   return (dispatch: Dispatch) => {
     dispatch(start());
 
-    compose([actor(id), movies(id)])
+    compose([actor(id), credits(id)])
       .then((response: any[]) => {
         dispatch(successActord(response[0].data));
         dispatch(successMovies(response[1].data.cast));

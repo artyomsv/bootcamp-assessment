@@ -5,13 +5,15 @@ export interface IMDbResponse<T> {
   total_results: number
 }
 
-export interface IMDbMoviesResponse {
-  cast: IMDbCastMovie[];
-  crew: IMDbCrew[];
+export interface IMDbGrid {
   id: number;
+  name: string;
+  title: string;
+  profile_path: string;
+  poster_path: string;
 }
 
-export interface IMDbMovie {
+export interface IMDbMovie extends IMDbGrid {
   id: number;
   adult: false;
   backdrop_path: string;
@@ -25,6 +27,7 @@ export interface IMDbMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  genre_ids: number[];
 }
 
 export interface IMDbCastMovie extends IMDbMovie {
@@ -77,11 +80,6 @@ export interface IMDbCollection {
   backdrop_path: string;
 }
 
-
-export interface IMDbCrew {
-
-}
-
 export interface IMDbKnowFor {
   adult: boolean;
   backdrop_path: string;
@@ -100,12 +98,10 @@ export interface IMDbKnowFor {
   vote_count: number;
 }
 
-export interface IMDbActor {
-  id: number;
+export interface IMDbActor extends IMDbGrid {
   adult: boolean;
   name: string;
   popularity: number;
-  profile_path: string;
 }
 
 export interface IMDbKnownActor extends IMDbActor {
