@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build --source-map true",
-    "test": "nyc react-scripts-ts test --env=jsdom --coverage",
+    "test": "nyc react-scripts-ts test --env=jsdom",
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

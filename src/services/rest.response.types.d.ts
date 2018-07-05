@@ -106,6 +106,7 @@ export interface IMDbActor extends IMDbGrid {
 
 export interface IMDbKnownActor extends IMDbActor {
   known_for: IMDbKnowFor[];
+  character: string;
 }
 
 export interface IMDbActorDetails extends IMDbActor {

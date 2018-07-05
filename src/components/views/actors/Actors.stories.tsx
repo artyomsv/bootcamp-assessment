@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ActorsView from './../actors/Actors.view';
 import ItemsGrid from '../../common/grid/ItemsGrid.widget';
-import ActorsList from './../actors/list/ActorsList.widget';
+import ActorsList from '../../common/list/ActorsList.widget';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import actors from './__mock__/actors.mock.json';

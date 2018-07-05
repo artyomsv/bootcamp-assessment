@@ -2,10 +2,12 @@
 
 exports[`renders without crashing if renders 1`] = `
 <withRouter(MovieDetailsView)
+  actors={Array []}
   classes={
     Object {
       "button": "withRouter-MovieDetailsView--button-7",
       "companyImage": "withRouter-MovieDetailsView--companyImage-4",
+      "demo": "withRouter-MovieDetailsView--demo-9",
       "details": "withRouter-MovieDetailsView--details-2",
       "extendedIcon": "withRouter-MovieDetailsView--extendedIcon-8",
       "image": "withRouter-MovieDetailsView--image-3",
@@ -16,9 +18,12 @@ exports[`renders without crashing if renders 1`] = `
   }
   clearState={[MockFunction]}
   details={Object {}}
+  fetchMovieActors={[MockFunction]}
   fetchMovieDetails={[MockFunction]}
   goBack={[MockFunction]}
-  isFetching={false}
+  isActorsFetching={false}
+  isMovieFetching={false}
   navigateToActor={[MockFunction]}
+  navigateToMovie={[MockFunction]}
 />
 `;

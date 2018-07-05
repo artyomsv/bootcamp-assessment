@@ -9,11 +9,15 @@ describe('renders without crashing', () => {
     const mockFn = jest.fn();
     const result = shallow(
       <MovieDetailsView
-        isFetching={false}
+        isMovieFetching={false}
+        isActorsFetching={false}
         fetchMovieDetails={mockFn}
+        fetchMovieActors={mockFn}
         clearState={mockFn}
         details={{} as any}
+        actors={[]}
         navigateToActor={mockFn}
+        navigateToMovie={mockFn}
         goBack={mockFn}
       />
     );

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {IMDbKnowFor, IMDbKnownActor} from '../../../../services/rest.response.types';
+import {IMDbKnowFor, IMDbKnownActor} from '../../../services/rest.response.types';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
-import Information from './../../../common/information';
-import Image from './../../../common/image/Image.widget';
+import Information from '../information/index';
+import Image from '../image/Image.widget';
 
 const styles = (theme: Theme) => createStyles({
   root: {
