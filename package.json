@@ -10,7 +10,7 @@
     "global": "^4.3.2",
     "lodash": "^4.17.10",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.4.2",
     "react-loadable": "^5.4.0",
     "react-redux": "^5.0.7",
     "react-redux-toastr": "^7.3.0",
